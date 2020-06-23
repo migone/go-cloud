@@ -97,7 +97,7 @@ func NewKeeper(sk [32]byte) *secrets.Keeper {
 // to a [32]byte, erroring if the decoded data is not 32 bytes.
 func Base64Key(base64str string) ([32]byte, error) {
 	var sk32 [32]byte
-	key, err := base64.StdEncoding.DecodeString(base64str)
+	key, err := base64.URLEncoding.DecodeString(base64str)
 	if err != nil {
 		return sk32, err
 	}
